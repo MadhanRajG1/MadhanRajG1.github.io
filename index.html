@@ -68,10 +68,6 @@ body::after{background:#6366f1;bottom:-200px;right:-160px}
 .stat h3{font-size:2rem;margin-bottom:4px}
 .stat p{color:var(--muted);font-size:.9rem}
 
-/* ===== TIMELINE ===== */
-.timeline{border-left:2px solid var(--accent);padding-left:18px}
-.timeline-item{margin-bottom:16px;color:var(--muted)}
-
 /* ===== CONTACT ===== */
 .input{width:100%;padding:16px 18px;border-radius:16px;background:#0a1124;border:1px solid var(--border);color:#fff;margin-bottom:16px;font-size:.95rem}
 .input:focus{outline:none;border-color:#22d3ee}
@@ -79,13 +75,13 @@ body::after{background:#6366f1;bottom:-200px;right:-160px}
 .send-btn:hover{transform:translateY(-2px)}
 
 /* ===== SOCIAL ===== */
-.socials{display:flex;gap:14px;margin-top:18px}
+.socials{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap}
 .socials a{padding:10px 14px;border-radius:12px;border:1px solid var(--border);color:var(--muted);text-decoration:none;font-size:.9rem}
 .socials a:hover{color:#fff;border-color:#22d3ee}
 
-/* ===== REVEAL ===== */
-.reveal{opacity:0;transform:translateY(60px);transition:all .9s cubic-bezier(.2,.65,.2,1)}
-.reveal.active{opacity:1;transform:translateY(0)}
+/* ===== REVEAL FIX (always visible, animate when active) ===== */
+.reveal{opacity:1;transform:translateY(0);transition:all .9s cubic-bezier(.2,.65,.2,1)}
+.reveal.animate{opacity:1;transform:translateY(0)}
 
 footer{text-align:center;padding:70px 20px;color:var(--muted);border-top:1px solid var(--border);font-size:.95rem}
 @media(max-width:600px){.hero h1{font-size:2.3rem}}
@@ -129,6 +125,60 @@ footer{text-align:center;padding:70px 20px;color:var(--muted);border-top:1px sol
     <h2>About <span class="gradient">Me</span></h2>
   </div>
   <div class="card">
+    Mechanical Engineering graduate transitioning into IT with a focus on Python, Data Analytics, and Cloud Computing. AWS Certified Cloud Practitioner (CCP) holder with strong interest in data-driven problem solving and continuous learning.
+
+    <div class="stats">
+      <div class="stat"><h3>1+</h3><p>Certifications</p></div>
+      <div class="stat"><h3>2026</h3><p>Cloud Journey</p></div>
+      <div class="stat"><h3>∞</h3><p>Learning Mode</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="skills">
+  <div class="section-title">
+    <small>WHAT I KNOW</small>
+    <h2>My <span class="gradient">Skills</span></h2>
+  </div>
+  <div class="grid">
+    <div class="card"><h3>AWS Cloud</h3><span class="tag">EC2</span><span class="tag">S3</span><span class="tag">IAM</span><span class="tag">VPC</span><span class="tag">Cloud Security Basics</span></div>
+    <div class="card"><h3>Infrastructure</h3><span class="tag">Linux Basics</span><span class="tag">Networking Fundamentals</span><span class="tag">Cloud Service Models</span></div>
+    <div class="card"><h3>Programming</h3><span class="tag">Basic Python</span><span class="tag">Data Structures</span><span class="tag">Scripting</span></div>
+    <div class="card"><h3>Data & Analytics</h3><span class="tag">Basic Data Science</span><span class="tag">Data-Driven Problem Solving</span></div>
+  </div>
+</section>
+
+<section class="section reveal" id="services">
+  <div class="section-title">
+    <h2>Services</h2>
+    <p style="color:var(--muted)">Beginner-level cloud support services to help with foundational AWS tasks.</p>
+  </div>
+  <div class="grid">
+    <div class="card"><h3>Basic EC2 Setup</h3><p>Launch and configure EC2 instances for simple workloads.</p></div>
+    <div class="card"><h3>S3 Configuration</h3><p>Set up S3 buckets with proper access and storage policies.</p></div>
+    <div class="card"><h3>IAM Setup</h3><p>Create and manage IAM users, roles, and permission policies.</p></div>
+    <div class="card"><h3>Cloud Guidance</h3><p>Explain cloud concepts and help with foundational understanding.</p></div>
+    <div class="card"><h3>Security Basics</h3><p>Implement foundational cloud security best practices.</p></div>
+  </div>
+</section>
+
+<section class="section reveal" id="projects">
+  <div class="section-title">
+    <small>MY WORK</small>
+    <h2>My <span class="gradient">Projects</span></h2>
+  </div>
+  <div class="card" style="text-align:center">
+    <h3 style="margin-bottom:10px">🚀 Projects Coming Soon</h3>
+    <p style="color:var(--muted)">Currently working on building hands-on cloud and data projects. Stay tuned for updates!</p>
+  </div>
+</section>
+
+<section class="section reveal" id="contact">
+  <div class="section-title">
+    <small>LET'S CONNECT</small>
+    <h2>Get in <span class="gradient">Touch</span></h2>
+  </div>
+  <div class="card">
     <form action="https://formspree.io/f/mwvndazk" method="POST">
       <input class="input" name="name" placeholder="Your Name" required />
       <input class="input" type="email" name="email" placeholder="Your Email" required />
@@ -146,7 +196,14 @@ let i=0,j=0,current='',del=false;
 function type(){const el=document.getElementById('typing');current=roles[i];if(del){el.textContent=current.substring(0,j--);if(j<0){del=false;i=(i+1)%roles.length}}else{el.textContent=current.substring(0,j++);if(j>current.length){del=true;setTimeout(type,1200);return}}setTimeout(type,del?40:70)}
 type();
 
-const observer=new IntersectionObserver(entries=>{entries.forEach((entry,idx)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('active'),idx*120);}});},{threshold:.15});
+// simple reveal safety (ensures visibility even if observer fails)
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('animate');
+    }
+  });
+},{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 
