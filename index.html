@@ -21,11 +21,19 @@
 --accent2:#6366f1;
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box
+}
+
+html{
+scroll-behavior:smooth
+}
 
 body{
 font-family:'Inter',sans-serif;
-background:radial-gradient(circle at 20% 10%,#0f1b33,#050814 60%);
+background:radial-gradient(circle at 15% 10%,#0f1b33,#050814 60%);
 color:var(--text);
 overflow-x:hidden
 }
@@ -35,7 +43,7 @@ overflow-x:hidden
 .navbar{
 position:sticky;
 top:0;
-background:rgba(6,10,25,.65);
+background:rgba(6,10,25,.7);
 backdrop-filter:blur(16px);
 border-bottom:1px solid var(--border)
 }
@@ -49,23 +57,28 @@ justify-content:space-between;
 align-items:center
 }
 
-.logo{font-weight:800}
+.logo{
+font-weight:800
+}
 
 .nav-links a{
 color:var(--muted);
 text-decoration:none;
 margin-left:24px;
-font-size:.95rem
+font-size:.95rem;
+transition:.3s
 }
 
-.nav-links a:hover{color:white}
+.nav-links a:hover{
+color:white
+}
 
 /* HERO */
 
 .hero{
 max-width:1200px;
 margin:auto;
-padding:120px 20px 100px;
+padding:130px 20px 100px;
 display:grid;
 gap:50px;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -83,10 +96,22 @@ background:linear-gradient(90deg,var(--accent),var(--accent2));
 -webkit-text-fill-color:transparent
 }
 
+.typing{
+margin:10px 0;
+color:var(--accent);
+font-weight:600
+}
+
 .hero img{
 width:280px;
 border-radius:20px;
-border:1px solid var(--border)
+border:1px solid var(--border);
+animation:float 5s ease-in-out infinite
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-18px)}
 }
 
 .btn{
@@ -118,7 +143,7 @@ padding:100px 20px
 
 .section-title small{
 color:var(--accent);
-letter-spacing:2px;
+letter-spacing:2px
 }
 
 .section-title h2{
@@ -143,10 +168,11 @@ transition:.3s
 }
 
 .card:hover{
-transform:translateY(-6px)
+transform:translateY(-8px);
+box-shadow:0 20px 60px rgba(0,0,0,.5)
 }
 
-/* TAGS */
+/* TAG */
 
 .tag{
 display:inline-block;
@@ -198,6 +224,19 @@ font-weight:700;
 cursor:pointer
 }
 
+/* SCROLL ANIMATION */
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:all .8s ease
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0)
+}
+
 footer{
 text-align:center;
 padding:60px;
@@ -209,8 +248,6 @@ border-top:1px solid var(--border)
 </head>
 
 <body>
-
-<!-- NAVBAR -->
 
 <div class="navbar">
 <div class="nav-inner">
@@ -227,13 +264,13 @@ border-top:1px solid var(--border)
 </div>
 </div>
 
-<!-- HERO -->
-
 <section class="hero">
 
 <div>
 
 <h1>Hi, I'm <span class="gradient">Madhan Raj</span></h1>
+
+<div class="typing" id="typing"></div>
 
 <p>
 AWS Certified Cloud Practitioner focused on Python, Data Analytics, and Cloud Computing.
@@ -251,9 +288,7 @@ Download Resume
 
 </section>
 
-<!-- ABOUT -->
-
-<section class="section" id="about">
+<section class="section reveal" id="about">
 
 <div class="section-title">
 <small>WHO I AM</small>
@@ -262,7 +297,7 @@ Download Resume
 
 <div class="card">
 
-Mechanical Engineering graduate transitioning into IT with a focus on Python, Data Analytics, and Cloud Computing. AWS Certified Cloud Practitioner (CCP) holder with strong interest in data-driven problem solving and continuous learning.
+Mechanical Engineering graduate transitioning into IT with focus on Python, Data Analytics, and Cloud Computing. AWS Certified Cloud Practitioner (CCP) holder passionate about cloud technologies and continuous learning.
 
 <div class="stats">
 
@@ -287,9 +322,7 @@ Mechanical Engineering graduate transitioning into IT with a focus on Python, Da
 
 </section>
 
-<!-- SKILLS -->
-
-<section class="section" id="skills">
+<section class="section reveal" id="skills">
 
 <div class="section-title">
 <small>WHAT I KNOW</small>
@@ -300,48 +333,38 @@ Mechanical Engineering graduate transitioning into IT with a focus on Python, Da
 
 <div class="card">
 <h3>AWS Cloud</h3>
-
 <span class="tag">EC2</span>
 <span class="tag">S3</span>
 <span class="tag">IAM</span>
 <span class="tag">VPC</span>
-<span class="tag">Cloud Security Basics</span>
-
+<span class="tag">Cloud Security</span>
 </div>
 
 <div class="card">
 <h3>Infrastructure</h3>
-
-<span class="tag">Linux Basics</span>
-<span class="tag">Networking Fundamentals</span>
-<span class="tag">Cloud Service Models</span>
-
+<span class="tag">Linux</span>
+<span class="tag">Networking</span>
+<span class="tag">Cloud Models</span>
 </div>
 
 <div class="card">
 <h3>Programming</h3>
-
 <span class="tag">Python</span>
 <span class="tag">Data Structures</span>
 <span class="tag">Scripting</span>
-
 </div>
 
 <div class="card">
 <h3>Data & Analytics</h3>
-
-<span class="tag">Basic Data Science</span>
-<span class="tag">Data-Driven Problem Solving</span>
-
+<span class="tag">Data Science</span>
+<span class="tag">Problem Solving</span>
 </div>
 
 </div>
 
 </section>
 
-<!-- PROJECTS -->
-
-<section class="section" id="projects">
+<section class="section reveal" id="projects">
 
 <div class="section-title">
 <small>MY WORK</small>
@@ -351,66 +374,28 @@ Mechanical Engineering graduate transitioning into IT with a focus on Python, Da
 <div class="grid">
 
 <div class="card">
-
 <h3>AWS S3 Static Website Hosting</h3>
-
-<p>
-Deployed a static website using Amazon S3 Static Website Hosting and configured bucket policies to enable public access.
-</p>
-
-<a class="btn btn-secondary"
-href="https://github.com/MadhanRajG1/aws-s3-static-website-hosting"
-target="_blank">
-
-View Project
-
-</a>
-
+<p>Hosted a static website using Amazon S3.</p>
+<a class="btn btn-secondary" href="https://github.com/MadhanRajG1/aws-s3-static-website-hosting" target="_blank">View Project</a>
 </div>
 
 <div class="card">
-
-<h3>AWS EC2 Linux Web Server Deployment</h3>
-
-<p>
-Deployed a website on AWS EC2 using Ubuntu Linux and Nginx web server. Configured security groups and hosted a live website.
-</p>
-
-<a class="btn btn-secondary"
-href="https://github.com/MadhanRajG1/aws-ec2-nginx-website"
-target="_blank">
-
-View Project
-
-</a>
-
+<h3>AWS EC2 Linux Web Server</h3>
+<p>Deployed Nginx server on AWS EC2.</p>
+<a class="btn btn-secondary" href="https://github.com/MadhanRajG1/aws-ec2-nginx-website" target="_blank">View Project</a>
 </div>
 
 <div class="card">
-
-<h3>Dockerized Web Application Deployment on AWS</h3>
-
-<p>
-Built a Python Flask web application, containerized it using Docker and deployed it on an AWS EC2 instance with public access.
-</p>
-
-<a class="btn btn-secondary"
-href="https://github.com/MadhanRajG1/docker-aws-cicd-project"
-target="_blank">
-
-View Project
-
-</a>
-
+<h3>Dockerized Flask App on AWS</h3>
+<p>Docker container deployed on EC2.</p>
+<a class="btn btn-secondary" href="https://github.com/MadhanRajG1/docker-aws-cicd-project" target="_blank">View Project</a>
 </div>
 
 </div>
 
 </section>
 
-<!-- CONTACT -->
-
-<section class="section" id="contact">
+<section class="section reveal" id="contact">
 
 <div class="section-title">
 <small>LET'S CONNECT</small>
@@ -422,9 +407,7 @@ View Project
 <form action="https://formspree.io/f/mwvndazk" method="POST">
 
 <input class="input" name="name" placeholder="Your Name" required>
-
 <input class="input" name="email" placeholder="Your Email" required>
-
 <textarea class="input" name="message" rows="4" placeholder="Your Message" required></textarea>
 
 <button class="send-btn">Send Message</button>
@@ -439,12 +422,67 @@ View Project
 
 © 2026 Madhan Raj G
 
-<br><br>
-
-<a href="https://github.com/MadhanRajG1" target="_blank">GitHub</a> |
-<a href="https://www.linkedin.com/in/madhan-raj-g-172409292" target="_blank">LinkedIn</a>
-
 </footer>
+
+<script>
+
+/* typing animation */
+
+const roles=[
+"AWS Certified Cloud Practitioner",
+"Aspiring Cloud Engineer",
+"Cloud & Data Enthusiast"
+]
+
+let i=0
+let j=0
+let current=''
+let deleting=false
+
+function type(){
+
+current=roles[i]
+
+if(!deleting){
+
+document.getElementById("typing").textContent=current.substring(0,j++)
+if(j>current.length){
+deleting=true
+setTimeout(type,1000)
+return
+}
+
+}else{
+
+document.getElementById("typing").textContent=current.substring(0,j--)
+if(j<0){
+deleting=false
+i=(i+1)%roles.length
+}
+
+}
+
+setTimeout(type,60)
+
+}
+
+type()
+
+/* scroll reveal */
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("active")
+}
+})
+})
+
+document.querySelectorAll(".reveal").forEach(el=>{
+observer.observe(el)
+})
+
+</script>
 
 </body>
 </html>
