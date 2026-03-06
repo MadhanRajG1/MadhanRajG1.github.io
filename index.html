@@ -11,193 +11,90 @@
 
 <style>
 
-:root{
---bg:#050814;
---card:#0c1224;
---border:rgba(255,255,255,0.08);
---text:#eaf2ff;
---muted:#94a3b8;
---accent:#22d3ee;
---accent2:#6366f1;
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-
 body{
 font-family:'Inter',sans-serif;
-background:radial-gradient(circle at 15% 10%,#0f1b33,#050814 60%);
-color:var(--text);
-overflow-x:hidden
+background:#050814;
+color:white;
+margin:0;
 }
 
 .navbar{
-position:sticky;
-top:0;
-background:rgba(6,10,25,.65);
-backdrop-filter:blur(16px);
-border-bottom:1px solid var(--border)
-}
-
-.nav-inner{
-max-width:1200px;
-margin:auto;
-padding:16px 22px;
 display:flex;
 justify-content:space-between;
-align-items:center
+padding:20px 40px;
+background:#0c1224;
 }
-
-.logo{font-weight:800}
 
 .nav-links a{
-color:var(--muted);
+margin-left:20px;
 text-decoration:none;
-margin-left:24px;
-font-size:.95rem
+color:#94a3b8;
 }
 
-.nav-links a:hover{color:white}
+.nav-links a:hover{
+color:white;
+}
 
 .hero{
-max-width:1200px;
-margin:auto;
-padding:130px 20px 100px;
-display:grid;
-gap:50px;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-align-items:center
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:100px 10%;
+}
+
+.hero img{
+width:260px;
+border-radius:20px;
 }
 
 .hero h1{
 font-size:3rem;
-font-weight:800
 }
 
 .gradient{
-background:linear-gradient(90deg,var(--accent),var(--accent2));
--webkit-background-clip:text;
--webkit-text-fill-color:transparent
-}
-
-.hero img{
-width:280px;
-border-radius:20px;
-border:1px solid var(--border)
+color:#22d3ee;
 }
 
 .btn{
-display:inline-block;
-padding:12px 22px;
-border-radius:12px;
+padding:12px 20px;
+background:#22d3ee;
+color:black;
+border-radius:8px;
 text-decoration:none;
-font-weight:600;
-margin-right:10px
-}
-
-.btn-primary{
-background:linear-gradient(135deg,var(--accent),var(--accent2));
-color:white
-}
-
-.btn-secondary{
-border:1px solid var(--border);
-color:white
+margin-right:10px;
 }
 
 .section{
-max-width:1200px;
-margin:auto;
-padding:100px 20px
-}
-
-.section-title h2{
-font-size:2.3rem;
-margin-top:6px
-}
-
-.section-title small{
-color:var(--accent)
+padding:80px 10%;
 }
 
 .grid{
 display:grid;
-gap:25px;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr))
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
 .card{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:18px;
-padding:30px;
-transition:.3s
-}
-
-.card:hover{
-transform:translateY(-6px)
-}
-
-.tag{
-display:inline-block;
-padding:6px 12px;
-border-radius:999px;
-background:#111a2e;
-border:1px solid var(--border);
-font-size:.8rem;
-margin:5px
-}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:20px;
-margin-top:20px
-}
-
-.stat{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:15px;
-padding:20px;
-text-align:center
-}
-
-.input{
-width:100%;
-padding:15px;
-border-radius:10px;
-border:1px solid var(--border);
-background:#0a1124;
-color:white;
-margin-bottom:15px
-}
-
-.send-btn{
-width:100%;
-padding:16px;
-border:none;
+background:#0c1224;
+padding:25px;
 border-radius:12px;
-background:linear-gradient(135deg,var(--accent),var(--accent2));
-color:white;
-font-weight:700;
-cursor:pointer
 }
 
 footer{
 text-align:center;
-padding:60px;
-color:var(--muted);
-border-top:1px solid var(--border)
+padding:40px;
+color:#94a3b8;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <div class="navbar">
-<div class="nav-inner">
-<div class="logo">Madhan Raj G</div>
+
+<h3>Madhan Raj G</h3>
 
 <div class="nav-links">
 <a href="#about">About</a>
@@ -207,7 +104,6 @@ border-top:1px solid var(--border)
 </div>
 
 </div>
-</div>
 
 <section class="hero">
 
@@ -216,12 +112,12 @@ border-top:1px solid var(--border)
 <h1>Hi, I'm <span class="gradient">Madhan Raj</span></h1>
 
 <p>
-AWS Certified Cloud Practitioner focused on Python, Cloud Computing and Data Analytics.
+AWS Certified Cloud Practitioner focused on Cloud Computing, Python and DevOps technologies.
 </p>
 
-<a class="btn btn-primary" href="#contact">Contact Me</a>
-
-<a class="btn btn-secondary" href="resume.pdf" download>Download Resume</a>
+<a class="btn" href="madhan-raj-cloud-resume.pdf" download>
+Download Resume
+</a>
 
 </div>
 
@@ -231,67 +127,35 @@ AWS Certified Cloud Practitioner focused on Python, Cloud Computing and Data Ana
 
 <section class="section" id="about">
 
-<div class="section-title">
-<small>WHO I AM</small>
 <h2>About Me</h2>
-</div>
 
-<div class="card">
+<p>
 
-Mechanical Engineering graduate transitioning into IT with focus on Cloud Computing, Python and Data Analytics. Passionate about building cloud solutions and continuously learning new technologies.
+Mechanical Engineering graduate transitioning into IT with AWS Certified Cloud Practitioner certification. Passionate about cloud computing, DevOps and building scalable cloud solutions.
 
-<div class="stats">
-
-<div class="stat">
-<h3>3+</h3>
-<p>Projects</p>
-</div>
-
-<div class="stat">
-<h3>1</h3>
-<p>AWS Certification</p>
-</div>
-
-<div class="stat">
-<h3>2026</h3>
-<p>Cloud Journey</p>
-</div>
-
-</div>
-
-</div>
+</p>
 
 </section>
 
 <section class="section" id="skills">
 
-<div class="section-title">
-<small>SKILLS</small>
-<h2>Technical Skills</h2>
-</div>
+<h2>Skills</h2>
 
 <div class="grid">
 
 <div class="card">
 <h3>AWS Cloud</h3>
-<span class="tag">EC2</span>
-<span class="tag">S3</span>
-<span class="tag">IAM</span>
-<span class="tag">CloudFront</span>
+<p>EC2, S3, IAM, CloudFront</p>
 </div>
 
 <div class="card">
 <h3>Programming</h3>
-<span class="tag">Python</span>
-<span class="tag">Flask</span>
-<span class="tag">Linux</span>
+<p>Python, Flask</p>
 </div>
 
 <div class="card">
 <h3>DevOps</h3>
-<span class="tag">Docker</span>
-<span class="tag">Git</span>
-<span class="tag">GitHub</span>
+<p>Docker, Git, GitHub</p>
 </div>
 
 </div>
@@ -300,23 +164,21 @@ Mechanical Engineering graduate transitioning into IT with focus on Cloud Comput
 
 <section class="section" id="projects">
 
-<div class="section-title">
-<small>MY WORK</small>
 <h2>Projects</h2>
-</div>
 
 <div class="grid">
 
 <div class="card">
+
 <h3>AWS S3 Static Website Hosting</h3>
 
 <p>
-Deployed a static website using Amazon S3 Static Website Hosting and configured bucket policies to enable public access.
+
+Deployed a static website using Amazon S3 Static Website Hosting and configured bucket policies for public access.
+
 </p>
 
-<a class="btn btn-secondary"
-href="https://github.com/MadhanRajG1/aws-s3-static-website-hosting"
-target="_blank">
+<a href="https://github.com/MadhanRajG1/aws-s3-static-website-hosting" target="_blank">
 
 View Project
 
@@ -325,15 +187,16 @@ View Project
 </div>
 
 <div class="card">
+
 <h3>AWS EC2 Linux Web Server Deployment</h3>
 
 <p>
-Deployed a website on AWS EC2 using Ubuntu Linux and Nginx web server. Configured security groups and hosted a live website.
+
+Deployed a website on AWS EC2 using Ubuntu Linux and Nginx web server.
+
 </p>
 
-<a class="btn btn-secondary"
-href="https://github.com/MadhanRajG1/aws-ec2-nginx-website"
-target="_blank">
+<a href="https://github.com/MadhanRajG1/aws-ec2-nginx-website" target="_blank">
 
 View Project
 
@@ -342,15 +205,16 @@ View Project
 </div>
 
 <div class="card">
+
 <h3>Dockerized Web Application Deployment on AWS</h3>
 
 <p>
-Built a Python Flask web application, containerized it using Docker and deployed it on an AWS EC2 instance with public access.
+
+Built a Python Flask web application and deployed it using Docker containers on AWS EC2.
+
 </p>
 
-<a class="btn btn-secondary"
-href="https://github.com/MadhanRajG1/docker-aws-cicd-project"
-target="_blank">
+<a href="https://github.com/MadhanRajG1/docker-aws-cicd-project" target="_blank">
 
 View Project
 
@@ -364,37 +228,22 @@ View Project
 
 <section class="section" id="contact">
 
-<div class="section-title">
-<small>LET'S CONNECT</small>
-<h2>Contact Me</h2>
-</div>
+<h2>Contact</h2>
 
-<div class="card">
+<p>Email: madhanrajmaddy007@gmail.com</p>
 
-<form action="https://formspree.io/f/mwvndazk" method="POST">
+<p>
 
-<input class="input" name="name" placeholder="Your Name" required>
+<a href="https://github.com/MadhanRajG1">GitHub</a> |
+<a href="https://www.linkedin.com/in/madhan-raj-g-172409292">LinkedIn</a>
 
-<input class="input" name="email" placeholder="Your Email" required>
-
-<textarea class="input" name="message" rows="4" placeholder="Your Message" required></textarea>
-
-<button class="send-btn">Send Message</button>
-
-</form>
-
-</div>
+</p>
 
 </section>
 
 <footer>
 
 © 2026 Madhan Raj G
-
-<br><br>
-
-<a href="https://github.com/MadhanRajG1" target="_blank">GitHub</a> |
-<a href="https://www.linkedin.com/in/madhan-raj-g-172409292" target="_blank">LinkedIn</a>
 
 </footer>
 
