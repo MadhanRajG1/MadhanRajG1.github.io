@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -33,30 +32,30 @@ color:var(--text);
 overflow-x:hidden;
 }
 
-/* glowing blobs */
+/* glowing background */
 
 body::before,
 body::after{
 content:"";
 position:fixed;
-width:500px;
-height:500px;
+width:520px;
+height:520px;
 border-radius:50%;
-filter:blur(140px);
+filter:blur(150px);
 opacity:.25;
 z-index:-1;
 }
 
 body::before{
 background:#22d3ee;
-top:-150px;
-left:-150px;
+top:-160px;
+left:-160px;
 }
 
 body::after{
 background:#6366f1;
-bottom:-150px;
-right:-150px;
+bottom:-200px;
+right:-160px;
 }
 
 /* navbar */
@@ -111,7 +110,7 @@ align-items:center;
 
 .hero h1{
 font-size:3.4rem;
-line-height:1.1;
+line-height:1.12;
 margin-bottom:10px;
 font-weight:800;
 }
@@ -122,30 +121,30 @@ background:linear-gradient(90deg,var(--accent),var(--accent2));
 -webkit-text-fill-color:transparent;
 }
 
-.hero p{
-color:var(--muted);
-margin-bottom:25px;
-font-size:1.02rem;
-}
-
 .typing{
 color:var(--muted);
 margin-bottom:20px;
 min-height:24px;
 }
 
+.hero p{
+color:var(--muted);
+margin-bottom:25px;
+font-size:1.02rem;
+}
+
 .hero img{
 width:280px;
-border-radius:24px;
+border-radius:26px;
 border:1px solid var(--border);
 justify-self:center;
 animation:float 5s ease-in-out infinite;
-box-shadow:0 30px 70px rgba(0,0,0,.55);
+box-shadow:0 30px 80px rgba(0,0,0,.55);
 }
 
 @keyframes float{
 0%,100%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
+50%{transform:translateY(-16px)}
 }
 
 .btn{
@@ -173,12 +172,12 @@ color:#fff;
 transform:translateY(-4px);
 }
 
-/* social */
+/* socials */
 
 .socials{
 display:flex;
 gap:12px;
-margin-top:20px;
+margin-top:18px;
 }
 
 .socials a{
@@ -195,7 +194,7 @@ color:#fff;
 border-color:#22d3ee;
 }
 
-/* sections */
+/* section */
 
 .section{
 max-width:1200px;
@@ -214,18 +213,7 @@ font-size:2.5rem;
 margin-top:8px;
 }
 
-.card{
-background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-border:1px solid var(--border);
-border-radius:24px;
-padding:30px;
-transition:.35s;
-}
-
-.card:hover{
-transform:translateY(-6px);
-box-shadow:0 30px 80px rgba(0,0,0,.5);
-}
+/* cards */
 
 .grid{
 display:grid;
@@ -233,15 +221,57 @@ gap:28px;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 }
 
+.card{
+background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+border:1px solid var(--border);
+border-radius:24px;
+padding:32px;
+transition:.35s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 35px 90px rgba(0,0,0,.55);
+}
+
+.tag{
+display:inline-block;
+padding:7px 14px;
+border-radius:999px;
+background:#111a2e;
+border:1px solid var(--border);
+font-size:.85rem;
+margin:6px;
+}
+
+/* skill bars */
+
+.skill-bar{
+margin-top:20px;
+}
+
+.progress{
+height:8px;
+background:#111a2e;
+border-radius:5px;
+margin-top:5px;
+}
+
+.progress div{
+height:8px;
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+border-radius:5px;
+}
+
 /* contact */
 
 .input{
 width:100%;
-padding:16px 18px;
-border-radius:16px;
+padding:16px;
+border-radius:12px;
 background:#0a1124;
 border:1px solid var(--border);
-color:#fff;
+color:white;
 margin-bottom:16px;
 }
 
@@ -249,14 +279,14 @@ margin-bottom:16px;
 width:100%;
 padding:18px;
 border:none;
-border-radius:16px;
+border-radius:14px;
 background:linear-gradient(135deg,var(--accent),var(--accent2));
-color:#fff;
-font-weight:800;
+color:white;
+font-weight:700;
 cursor:pointer;
 }
 
-/* reveal animation */
+/* reveal */
 
 .reveal{
 opacity:0;
@@ -291,7 +321,6 @@ border-top:1px solid var(--border);
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
 </div>
-
 </div>
 </div>
 
@@ -325,7 +354,7 @@ View Resume
 
 </div>
 
-<img src="profile.jpg" alt="Madhan Raj G">
+<img src="profile.jpg">
 
 </section>
 
@@ -346,6 +375,37 @@ Mechanical Engineering graduate transitioning into IT with a focus on Python, Da
 
 </section>
 
+<!-- SKILLS -->
+
+<section class="section reveal" id="skills">
+
+<div class="section-title">
+<small>TECH STACK</small>
+<h2>Skills</h2>
+</div>
+
+<div class="card">
+
+AWS
+
+<div class="progress"><div style="width:80%"></div></div>
+
+Python
+
+<div class="progress"><div style="width:70%"></div></div>
+
+Docker
+
+<div class="progress"><div style="width:65%"></div></div>
+
+Linux
+
+<div class="progress"><div style="width:75%"></div></div>
+
+</div>
+
+</section>
+
 <!-- PROJECTS -->
 
 <section class="section reveal" id="projects">
@@ -358,18 +418,57 @@ Mechanical Engineering graduate transitioning into IT with a focus on Python, Da
 <div class="grid">
 
 <div class="card">
+
 <h3>AWS S3 Static Website Hosting</h3>
-<p>Hosted a static website using Amazon S3 with public access configuration.</p>
+
+<p>
+Deployed static website using Amazon S3 Static Website Hosting.
+</p>
+
+<a class="btn btn-secondary"
+href="https://github.com/MadhanRajG1/aws-s3-static-website-hosting"
+target="_blank">
+
+View Project
+
+</a>
+
 </div>
 
 <div class="card">
-<h3>AWS EC2 Linux Web Server</h3>
-<p>Configured and deployed an Nginx web server on EC2 instance.</p>
+
+<h3>AWS EC2 Linux Web Server Deployment</h3>
+
+<p>
+Configured and deployed an Nginx web server on AWS EC2 instance.
+</p>
+
+<a class="btn btn-secondary"
+href="https://github.com/MadhanRajG1/aws-ec2-nginx-website"
+target="_blank">
+
+View Project
+
+</a>
+
 </div>
 
 <div class="card">
+
 <h3>Dockerized Web Application on AWS</h3>
-<p>Containerized Flask application using Docker and deployed on EC2.</p>
+
+<p>
+Flask application containerized using Docker and deployed on EC2.
+</p>
+
+<a class="btn btn-secondary"
+href="https://github.com/MadhanRajG1/docker-aws-cicd-project"
+target="_blank">
+
+View Project
+
+</a>
+
 </div>
 
 </div>
